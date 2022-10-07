@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-feed
+spec:
+  selector:
+    matchLabels:
+      run: api-feed
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: api-feed
+    spec:
+      containers:
+      - name: api-feed
+        image: docker.io/lukorito/udagram-api-feed:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 200m
+            memory: 100Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: api-feed
+  name: api-feed
+spec:
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
+  selector:
+    service: api-feed
