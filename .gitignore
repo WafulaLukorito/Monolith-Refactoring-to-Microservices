@@ -1,2 +1,4 @@
 /set_env.sh
 node_modules
+configurations/
+deployment/
