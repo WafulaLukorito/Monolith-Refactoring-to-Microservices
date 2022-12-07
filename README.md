@@ -1,13 +1,45 @@
 # Udagram Image Filtering Application
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+Image Filtering application, a clone of Instagram. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
 
-The project is split into two parts:
-1. Frontend - Angular web application built with Ionic Framework
-2. Backend RESTful API - Node-Express application
+I was provided a monolithic application. I had to refactor the application into microservices and deploy it to AWS.
 
-## Getting Started
-> _tip_: it's recommended that you start with getting the backend API running since the frontend web application depends on the API. 3 3
+## Project Tasks
+For this project, I carried out the following:
+
+- Refactored the monolithic application into microservices
+- Created s3 bucket and RDS database to store images and user data.
+- Set up each microservice to run on separate Docker containers.
+- Set up a reverse proxy server to route requests to the appropriate microservice.
+- Set up CircleCI as a CI/CD to build and test the application and push images to DockerHub.
+- Deployed the DockerHub images to the Elastic Kubernetes Service (EKS) cluster.
+- Employed AWS CLI to interface programatically with AWS services and kubectl to manage the Kubernetes cluster.
+- Set up logging and monitoring for the microservices using `AWS CloudWatch`.
+
+## Components
+
+The project has 2 main components:
+
+1. Frontend Web App - `Angular` web application built with `Ionic Framework`
+![Frontend](
+2. Backend RESTful API - A `Node-Express` application with a `Postgres` database
+
+## Refactoring Backend API, Frontend, and  Reverse Proxy
+
+- Initial API contained logic for both `users` and `feed` endpoints. I had to refactor the API into two separate microservices that can be run independently.
+- Configured the Dockerfile for the frontend service.
+- Created a reverse proxy running the `Nginx` server to route requests between frontend and the appropriate microservices.
+
+## Continuous Integration Pipeline
+- Created respective DockerHub repositories for each microservice.
+- Set up `CircleCI` to build and test the application and push images to `DockerHub`.
+
+## Container Orchestration with Kubernetes
+- Created a `Kubernetes` cluster on `AWS EKS` and respective `NodeGroups` using `kubectl`.
+- Deployed the DockerHub images to the `EKS` cluster.
+- Connected k8s services to allow communication between the microservices.
+
+
 
 ### Prerequisite
 1. The depends on the Node Package Manager (NPM). You will need to download and install Node from [https://nodejs.com/en/download](https://nodejs.org/en/download/). This will allow you to be able to run `npm` commands.
