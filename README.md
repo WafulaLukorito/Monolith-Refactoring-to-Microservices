@@ -24,6 +24,7 @@ The project has 2 main components:
 1. Frontend Web App - `Angular` web application built with `Ionic Framework`
 
 ![Frontend](https://github.com/WafulaLukorito/Monolith-Refactoring-to-Microservices/blob/master/screenshots/Screenshot%202022-12-08%20003021.png?raw=true "Frontend")
+
 2. Backend RESTful API - A `Node-Express` application with a `Postgres` database
 
 ## Refactoring the Monolithic Application
@@ -38,6 +39,7 @@ The project has 2 main components:
 - Set up `CircleCI` to build and test the application and push images to `DockerHub`.
 
 ![DockerHub](https://github.com/WafulaLukorito/Monolith-Refactoring-to-Microservices/blob/master/screenshots/Screenshot%20dockerhub.png?raw=true "DockerHub")
+
 ![CircleCI](https://github.com/WafulaLukorito/Monolith-Refactoring-to-Microservices/blob/master/screenshots/Screenshot%20circle%20ci.png?raw=true "CircleCI")
 
 ## Container Orchestration
